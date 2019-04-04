@@ -4,7 +4,7 @@ $(document).ready(function() {
     const $formSearch = $('#formSearch');
     const $ville = $formSearch.find('#ville');
     const $results = $('#results');
-    
+
     $formSearch.on('submit', function(event) {
         event.preventDefault();
 
@@ -29,6 +29,11 @@ $(document).ready(function() {
                     </div>
                 </div>`
             );
+
+            setMapView({
+                lat: weather.coord.lat,
+                lon: weather.coord.lon,
+            })
         });
     });
 });
@@ -42,4 +47,21 @@ function getWeatherByCity(cityName) {
                     .then(res => res.json());
 
     return promise;
+}
+
+
+const map = new ol.Map({
+    target: 'map',
+    layers: [
+        new ol.layer.Tile({
+            source: new ol.source.OSM()
+        })
+    ]
+});
+
+function setMapView({ lat, lon }) {
+    map.setView(new ol.View({
+        center: ol.proj.fromLonLat([lon, lat]),
+        zoom: 12
+    }));
 }
