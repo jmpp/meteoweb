@@ -1,0 +1,22 @@
+{
+  "name": "meteoweb",
+  "version": "1.0.0",
+  "description": "Une application météo classique",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server --port=9999 --browser=chrome"
+  },
+  "keywords": [
+    "meteo",
+    "web"
+  ],
+  "author": "JM",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}
