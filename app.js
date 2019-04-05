@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 import {getWeatherByCity} from './weatherService.js';
 import {setMapView} from './map.js';
 

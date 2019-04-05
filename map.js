@@ -1,15 +1,20 @@
-const map = new ol.Map({
+import {Map as olMap, View} from 'ol';
+import {OSM} from 'ol/source';
+import {Tile} from 'ol/layer';
+import {fromLonLat} from 'ol/proj';
+
+const map = new olMap({
     target: 'map',
     layers: [
-        new ol.layer.Tile({
-            source: new ol.source.OSM()
+        new Tile({
+            source: new OSM()
         })
     ]
 });
 
 export function setMapView({ lat, lon }) {
-    map.setView(new ol.View({
-        center: ol.proj.fromLonLat([lon, lat]),
+    map.setView(new View({
+        center: fromLonLat([lon, lat]),
         zoom: 12
     }));
 }
