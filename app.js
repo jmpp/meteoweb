@@ -1,3 +1,6 @@
+import {getWeatherByCity} from './weatherService.js';
+import {setMapView} from './map.js';
+
 $(document).ready(function() {
     'use strict';
 
@@ -37,31 +40,3 @@ $(document).ready(function() {
         });
     });
 });
-
-const API_KEY = 'e868747d83176ba6ec5d9ce6d81423f0';
-const API_ENDPOINT = 'http://api.openweathermap.org/data/2.5';
-
-function getWeatherByCity(cityName) {
-    cityName = encodeURIComponent(cityName);
-    let promise = fetch(`${API_ENDPOINT}/weather?q=${cityName}&APPID=${API_KEY}&units=metric&lang=fr`)
-                    .then(res => res.json());
-
-    return promise;
-}
-
-
-const map = new ol.Map({
-    target: 'map',
-    layers: [
-        new ol.layer.Tile({
-            source: new ol.source.OSM()
-        })
-    ]
-});
-
-function setMapView({ lat, lon }) {
-    map.setView(new ol.View({
-        center: ol.proj.fromLonLat([lon, lat]),
-        zoom: 12
-    }));
-}
