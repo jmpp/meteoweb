@@ -8,26 +8,30 @@
 
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css">
+    <style>
+        #map {
+            min-height: 400px;
+        }
+    </style>
 </head>
 <body>
 
-    <main class="container mt-3">
-        <h1>Meteo Web</h1>
-        <h2>Le temps à tout moment</h2>
-        <hr>
-        
-        <form id="formSearch">
-            <div class="form-group">
-                <label for="ville">Ville :</label>
-                <input class="form-control" type="text" id="ville" placeholder="Paris">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">☀ MeteoWeb</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/#/">Accueil</a>
+                <a class="nav-item nav-link" href="/#/previsions">Prévisions</a>
             </div>
+        </div>
+    </nav>
 
-            <button type="submit" class="btn btn-primary">Rechercher</button>
-        </form>
-
-        <div id="results" class="mt-3"></div>
-        <hr>
-        <div id="map"></div>
+    <main class="container mt-3">
+        <!-- Le routeur va injecter dans cette zone le bon contenu HTML -->
     </main>
 
    <script src="bundle.js"></script>

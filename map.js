@@ -3,8 +3,7 @@ import {OSM} from 'ol/source';
 import {Tile} from 'ol/layer';
 import {fromLonLat} from 'ol/proj';
 
-const map = new olMap({
-    target: 'map',
+export const map = new olMap({
     layers: [
         new Tile({
             source: new OSM()
